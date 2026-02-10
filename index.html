@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chen Zhi</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'PT Sans', sans-serif;
+            background-color: #ffffff; /* 确保纯白背景 */
+        }
+
+        /* 顶部介绍区域保持极简 */
+        .intro {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .name {
+            font-size: 22px;
+            font-weight: 400;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .lang-switch {
+            font-size: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .bio {
+            display: none;
+            max-width: 520px;
+            margin-top: 24px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* ===== 核心修改：作品列表布局 ===== */
+        .projects__list {
+            display: grid;
+            /* 强制 3 列布局 */
+            grid-template-columns: repeat(3, 1fr);
+            /* 增加间距，让横图和竖图之间有足够的“空气” */
+            gap: 80px 60px;
+            padding: 40px;
+            max-width: 1400px; /* 稍微放宽，显得更大气 */
+            margin: 0 auto 100px;
+            /* 关键：让所有图片在格子里垂直居中，解决横竖视觉不统一的问题 */
+            align-items: center;
+        }
+
+        .project-item {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            text-align: center; /* 让图片在列内居中 */
+        }
+
+        .thumb {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .thumb img {
+                /* 魔法代码：限制高度，让竖图不要太顶天立地 */
+                width: auto;
+                max-width: 100%;
+                max-height: 400px; /* 核心：限制竖图最高 400px，你可以根据感觉调整这个值 */
+
+                display: block;
+                transition: opacity 0.3s ease;
+                object-fit: contain; /* 绝不裁剪内容 */
+            }
+
+        .projects__list a:hover img {
+            opacity: 0.6;
+        }
+
+        /* 响应式：平板 2 列，手机 1 列 */
+        @media (max-width: 900px) {
+            .projects__list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .projects__list {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .thumb img {
+                max-height: none; /* 手机端取消高度限制，让图大一点 */
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 名字 + 简介（点击出现） -->
+    <div class="intro">
+        <div class="name" onclick="toggleBio()">陈志 / Chen Zhi</div>
+
+        <div class="lang-switch" onclick="toggleLang()">CN / EN</div>
+
+        <!-- 中文简介 -->
+        <div id="bio-cn" class="bio">
+            我的创作关注材料、界面与观看方式之间的关系，
+            通过物质实验与不稳定的生成过程，
+            讨论图像、表面与感知的边界。
+            <br><br>
+            Email: chengzidewo1102@163.com
+
+            <br>
+            Instagram:
+            <a href="https://www.instagram.com/_chenzhi1212/" target="_blank">
+                @_chenzhi1212
+            </a>
+        </div>
+
+        <!-- 英文简介 -->
+        <div id="bio-en" class="bio">
+            My practice focuses on material, interface, and modes of viewing.
+            Through unstable processes and material experiments,
+            I explore the boundaries of image, surface, and perception.
+            <br><br>
+            Email: chengzidewo1102@163.com
+
+            <br>
+            Instagram:
+            <a href="https://www.instagram.com/_chenzhi1212/" target="_blank">
+                @_chenzhi1212
+            </a>
+        </div>
+    </div>
+
+    <!-- 首页：作品图片 -->
+    <div class="projects__list">
+        <a href="works/work01.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work01.jpg" />
+            </div>
+        </a>
+
+        <a href="works/work02.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work02.jpg" />
+            </div>
+        </a>
+
+        <a href="works/work03.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work03.jpg" />
+            </div>
+        </a>
+        <a href="works/work04.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work04.png" />
+            </div>
+        </a>
+        <a href="works/work05.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work05.png" />
+            </div>
+        </a>
+        <a href="works/work06.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work06.png" />
+            </div>
+        </a>
+        <a href="works/work07.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work07.png" />
+            </div>
+        </a>
+        <a href="works/work08.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work08.png" />
+            </div>
+        </a>
+        <a href="works/work09.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work09.png" />
+            </div>
+        </a>
+        <a href="works/work10.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work10.png" />
+            </div>
+        </a>
+        <a href="works/work11.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work11.png" />
+            </div>
+        </a>
+        <a href="works/work12.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work12.png" />
+            </div>
+        </a>
+        <a href="works/work13.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work13.png" />
+            </div>
+        </a>
+        <a href="works/work14.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work14.png" />
+            </div>
+        </a>
+        <a href="works/work15.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work15.png" />
+            </div>
+        </a>
+        <a href="works/work16.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work16.png" />
+            </div>
+        </a>
+        <a href="works/work17.html" class="project-item">
+            <div class="thumb">
+                <img src="./assets/work17.jpg" />
+            </div>
+        </a>
+    </div>
+
+
+    
+
+
+    <script>
+        let lang = 'cn';
+
+        function toggleBio() {
+            document.getElementById('bio-cn').style.display = 'none';
+            document.getElementById('bio-en').style.display = 'none';
+
+            if (lang === 'cn') {
+                document.getElementById('bio-cn').style.display = 'block';
+            } else {
+                document.getElementById('bio-en').style.display = 'block';
+            }
+        }
+
+        function toggleLang() {
+            lang = lang === 'cn' ? 'en' : 'cn';
+            toggleBio();
+        }
+    </script>
+
+
+</body>
+</html>
